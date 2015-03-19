@@ -3,4 +3,4 @@ FROM		bachelor-thesis/base
 COPY		./makefile	./makefile
 COPY		./src		./src
 
-RUN			make all
+CMD		make all

@@ -22,6 +22,8 @@ build:
 	$(call build_image,base)
 	$(call build_image,build)
 	docker run $(project)/build
+	mkdir -p build/
+	docker cp $(shell docker ps -l -q):/root/build/thesis.pdf ./build
 	open build/thesis.pdf
 
 .PHONY: all clean develop build
