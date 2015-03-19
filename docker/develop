@@ -1,1 +1,9 @@
 FROM		bachelor-thesis/base
+
+MAINTAINER	Niklas Klein "mail@taig.io"
+
+# Use watch to trigger make regularly, as Docker fails to work with entr (on mounted volumes)
+RUN			apt-get install -y watch && \
+			apt-get clean
+
+CMD			while sleep 5; do make; done
