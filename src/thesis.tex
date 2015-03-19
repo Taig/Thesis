@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper,ngerman]{article}
+\usepackage[T1]{fontenc} 
+\usepackage[latin1]{inputenc} 
+\usepackage{babel}
+\usepackage{ae}
+%
+\usepackage{fancyref}
+\usepackage{fancyhdr} 
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{makeidx}
+\usepackage{listings}
+%
+% PDF settings
+\usepackage[pdftex]{graphicx}
+\usepackage[pdfstartview=FitH,pdftitle={<Titel>},pdfauthor={<Name>}, colorlinks=true, linktocpage]{hyperref}
+% colorlinks=false, pdfborder={0 0 0} = keine farbigen Links
+%
+% Header and Footer Style
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[R]{\slshape <Name>}
+\fancyhead[L]{\slshape\nouppercase{\rightmark}}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}} 
+%
+% No identation
+\setlength\headheight{15pt}
+\setlength\parindent{0pt} 
+%
+% Custom commands
+\newcommand\zb{z.\,B.\ }
+\renewcommand\dh{d.\,h.\ }
+\newcommand\parbig{\par\bigskip}
+\newcommand\parmed{\par\medskip}
+\newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
+%
+% Java Code Listing Style
+\definecolor{darkblue}{rgb}{0,0,.6}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\lstset{language=Java, basicstyle=\ttfamily\small\upshape, commentstyle=\color{darkgreen}\sffamily, keywordstyle=\color{darkblue}\rmfamily\bfseries, breaklines=true,tabsize=2,xleftmargin=3mm, xrightmargin=3mm,numbers=none,frame=single,stringstyle=\color{darkred},
+showstringspaces=false}
+%
+% Titel and author 
+\title{\includegraphics[width=0.6\textwidth]{pictures/logo}\\
+{\normalsize <X-Arbeit> am Institut für Informatik der Freien Universität Berlin, Arbeitsgruppe Software Engineering}\\[6ex]
+<Titel>}
+
+\author{<Name>\\
+{\normalsize Matrikelnummer: }\\
+{\normalsize \mailto{example@mail.de}}\\\\
+{\normalsize Betreuer: }\\
+{\normalsize Eingereicht bei: }}
+
+\date{Berlin, <Datum>}
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\pagenumbering{alph}
+\maketitle
+\thispagestyle{empty}
+
+\vfill{}
+
+\begin{abstract}
+Abstract
+\end{abstract}
+
+\vfill{}
+
+\end{titlepage}
+
+\pagestyle{empty}
+\clearpage\pagenumbering{roman}
+
+\include{declaration}
+
+\tableofcontents
+
+\clearpage\pagenumbering{arabic}
+\pagestyle{fancy}
+\setcounter{page}{1}
+\include{1_introduction}      
+\include{2_fundamentals}      
+\include{3_main}            
+\include{4_conclusion}
+\include{5_appendix}      
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+
+\end{document}
