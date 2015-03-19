@@ -1,0 +1,6 @@
+FROM		bachelor-thesis/base
+
+COPY		./makefile	./makefile
+COPY		./src		./src
+
+CMD		make all

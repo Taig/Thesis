@@ -1,5 +1,7 @@
 project = bachelor-thesis
 
+build_image = docker build -f docker/$(1) -t $(project)/$(1) .
+
 # Compile thesis to build/thesis.pdf
 all:
 	mkdir -p build/
@@ -11,13 +13,17 @@ clean:
 
 # Run Docker container in interactive development mode
 develop:
-	docker build -t $(project) .
-	docker run -v $(shell pwd):/root -i -t $(project)
+	$(call build_image,base)
+	$(call build_image,develop)
+	docker run -v $(shell pwd):/root -i -t $(project)/develop
 
 # Create build/thesis.pdf via Docker container
 build:
-	docker build -t $(project) .
-	docker run -v $(shell pwd):/root $(project) make all
+	$(call build_image,base)
+	$(call build_image,build)
+	docker run $(project)/build
+	mkdir -p build/
+	docker cp $(shell docker ps -l -q):/root/build/thesis.pdf ./build
 	open build/thesis.pdf
 
 .PHONY: all clean develop build
