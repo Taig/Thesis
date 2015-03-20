@@ -1,7 +1,10 @@
 \documentclass[11pt,a4paper]{article}
+
 \usepackage[utf8]{inputenc}
+\usepackage{textalpha}
 \usepackage[english]{babel}
 
+\usepackage{blindtext}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage[outputdir=../build]{minted}
@@ -9,6 +12,9 @@
 
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt} 
+
+%\newenvironment {asdf} {\begin{minted}{scala}} {\end{minted}}
+\newenvironment{code}[1]{\VerbatimEnvironment\begin{minted}{#1}}{\end{minted}}
 
 \begin{document}
 
