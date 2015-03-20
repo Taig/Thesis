@@ -2,7 +2,21 @@ FROM		taig/latex
 
 MAINTAINER	Niklas Klein "mail@taig.io"
 
-RUN			apt-get install make && \
+RUN			apt-get install -y make && \
 			apt-get clean
 
-WORKDIR		/root
+# Install minted 2.0 for syntax highlighting
+RUN			apt-get install -y python-pygments && \
+			apt-get clean && \
+			wget http://mirrors.ctan.org/macros/latex/contrib/minted.zip && \
+			unzip minted.zip && \
+			rm -r minted.zip && \
+			cd minted && \
+			make && \
+			mkdir -p ~/texmf/tex/latex/minted && \
+			mv *.sty ~/texmf/tex/latex/minted && \
+			cd .. && \
+			rm -r minted
+
+RUN			mkdir /root/thesis
+WORKDIR		/root/thesis

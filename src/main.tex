@@ -1,13 +1,29 @@
-\documentclass[11pt,a4paper,ngerman]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
+\usepackage[english]{babel}
 
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage[outputdir=../build]{minted}
 \usepackage{setspace}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt} 
 
 \begin{document}
 
-\include{section/cover/main}
-\include{section/affidavit/main}
+	\include{section/cover/main}
+
+	\include{section/abstract/main}
+
+	\include{section/affidavit/main}
+
+	\tableofcontents
+
+	\include{section/introduction/main}
+
+	\include{section/liefery/main}
+
+	\include{section/scala/main}
 
 \end{document}

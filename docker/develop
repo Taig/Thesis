@@ -6,4 +6,5 @@ MAINTAINER	Niklas Klein "mail@taig.io"
 RUN			apt-get install -y watch && \
 			apt-get clean
 
-CMD			while sleep 5; do make; done
+CMD			make all
+CMD			while sleep 5; do make clean; make all; done
