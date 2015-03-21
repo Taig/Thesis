@@ -4,6 +4,8 @@ build_image = docker build -f docker/$(1) -t $(project)/$(1) .
 
 # Compile thesis to build/main.pdf
 all: prepare
+	# We need to build twice, otherwise the contents page will not be available *rollseyes*
+	cd src/ && pdflatex -output-directory=../build -shell-escape main.tex
 	cd src/ && pdflatex -output-directory=../build -shell-escape main.tex
 
 # Remove build/directory
