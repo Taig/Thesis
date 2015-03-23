@@ -4,7 +4,10 @@ build_image = docker build -f docker/$(1) -t $(project)/$(1) .
 
 # Compile thesis to build/main.pdf
 all: prepare
-	# We need to build twice, otherwise the contents page will not be available *rollseyes*
+	find . -name "*.tex" \
+		! -path "./src/section/cover/*" \
+		! -path "./src/section/affidavit/*" \
+		-exec aspell --lang=en --mode=tex check "{}" \;
 	cd src/ && pdflatex -output-directory=../build -shell-escape main.tex
 
 # Remove build/directory
@@ -26,7 +29,7 @@ develop:
 # Create build/main.pdf via Docker container
 build:
 	$(call build_image,base)
-	docker run -v $(shell pwd):/root/thesis $(project)/base make
+	docker run -i -t -v $(shell pwd):/root/thesis $(project)/base make
 	open build/main.pdf
 
 # Enter interactive shell mode

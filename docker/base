@@ -18,5 +18,10 @@ RUN			apt-get install -y python-pygments && \
 			cd .. && \
 			rm -r minted
 
+# Install aspell for spell checking
+RUN			apt-get install -y aspell && \
+			apt-get clean && \
+			ln -s ~/thesis/dictionary ~/.aspell.en.pws
+
 RUN			mkdir /root/thesis
 WORKDIR		/root/thesis
