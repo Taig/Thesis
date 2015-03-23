@@ -6,14 +6,13 @@ build_image = docker build -f docker/$(1) -t $(project)/$(1) .
 all: prepare
 	# We need to build twice, otherwise the contents page will not be available *rollseyes*
 	cd src/ && pdflatex -output-directory=../build -shell-escape main.tex
-	cd src/ && pdflatex -output-directory=../build -shell-escape main.tex
 
 # Remove build/directory
 clean:
 	-@rm -r ./build 2> /dev/null
 
 # Prepare directory structure, to prevent latex from complaining
-prepare: clean
+prepare:
 	mkdir -p ./build
 	cd ./build && (cd ../src; find . -type d ! -name .) | xargs -i mkdir -p "{}"
 
