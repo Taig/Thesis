@@ -6,6 +6,8 @@
 
 \usepackage{acronym}
 \usepackage{blindtext}
+\usepackage{cite}
+\usepackage[autostyle=true]{csquotes}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage[outputdir=../build]{minted}
@@ -27,11 +29,24 @@
 	\tableofcontents
 
 	\include{section/introduction/main}
+	\include{section/research-technique}
 
-	\include{section/liefery/main}
+	How I prepared the interview consideration
 
-	\include{section/scala/main}
+	- After introducing each other jump right to the main topic, and ask the person what she did before Scala on Android
+	afterwards. The other way around it might become a hassle to prevent the person to not talk about Scala on Android.
+
+	\begin{code}{scala}
+	object Test extends App
+	{
+		val x = 3
+	}
+	\end{code}
 
 	\include{section/acronyms/main}
+
+	\nocite{*}
+	\bibliography{main}
+	\bibliographystyle{plain}
 
 \end{document}

@@ -4,11 +4,16 @@ build_image = docker build -f docker/$(1) -t $(project)/$(1) .
 
 # Compile thesis to build/main.pdf
 all: prepare
-	find . -name "*.tex" \
+	find . -wholename "./src/*.tex" \
 		! -path "./src/section/cover/*" \
 		! -path "./src/section/affidavit/*" \
+		! -path "./src/main.bib" \
 		-exec aspell --lang=en --mode=tex check "{}" \;
-	cd src/ && pdflatex -output-directory=../build -shell-escape main.tex
+	# Issue two compilation runs, because latex..
+	cp -r ./src/* ./build/
+	cd ./build && pdflatex -shell-escape main.tex
+	cd ./build && bibtex main
+	cd ./build && pdflatex -shell-escape main.tex
 
 # Remove build/directory
 clean:
@@ -17,7 +22,6 @@ clean:
 # Prepare directory structure, to prevent latex from complaining
 prepare:
 	mkdir -p ./build
-	cd ./build && (cd ../src; find . -type d ! -name .) | xargs -i mkdir -p "{}"
 
 # Run Docker container in interactive development mode
 develop:
