@@ -34,7 +34,7 @@ develop:
 build:
 	$(call build_image,base)
 	docker run -i -t -v $(shell pwd):/root/thesis $(project)/base make
-	open build/main.pdf
+	# open build/main.pdf
 
 # Enter interactive shell mode
 debug:

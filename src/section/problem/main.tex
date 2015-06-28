@@ -1,0 +1,40 @@
+\section{Problems}
+
+\subsection{Build tool}
+
+Leveraging \textit{Scala} on the \textit{Android} platform can be a surprisingly difficult undertaking. Once the decision for \textit{Scala on Android} has been made, the  first obstacle that a novice faces is the choice of the build tool. There are plugins available for multiple build tools, but it is difficult to find out in which way they differ and which one suits the developer's requirements best.
+
+\begin{description}
+
+	\item[Gradle]\hfill \\
+	Configured via the \textit{Groovy} programming language, officially documented and supported to be used with \textit{Android}
+
+	\item[\ac{sbt}]\hfill \\
+	Configured via the \textit{Scala} programming language, the de facto standard build-tool for \textit{Scala} projects
+
+	\item[Maven]\hfill \\
+	A well established build-tool in the \ac{JVM} environment, configured via \textit{XML}
+
+\end{description}
+
+Furthermore, since these plugins are community developed they tend to neglect certain features and are more likely to contain bugs because they are not as well-tried as the official tool-chain which is backed by \textit{Google}.
+
+\subsection{ProGuard and the \textit{65k-limit}}
+
+When the decision for a build tool has been made and the developer managed to setup a basic project he will now be confronted with \textit{ProGuard}. \textit{ProGuard} is a \ac{JVM} tool that is able to shrink, optimize and obfuscate byte code. It is included in the \textit{Android} tool-chain as an opt-in service since the very beginning. \textit{Java} developers may use it to minimize the application size by stripping out unused dependency classes or to make the code harder to reverse engineer by obfuscating identifiers. These services do unfortunately come with the price of two major downsides.
+
+\begin{description}
+
+	\item[Increased build times]\hfill \\
+	When the program code has been compiled to \textit{Java} byte-code, \textit{ProGuard} analyzes it, removes unused code and obfuscates identifiers. This process is very time consuming and increases build times dramatically.
+
+	\item[Configuration]\hfill \\
+	\textit{ProGuard} naturally fails to analyze code dependencies that rely on runtime reflection or if a library references a \ac{JDK} class which is not part of the \textit{Android} \ac{SDK}. The developer therefore has to detect these issues in the library code and adjust the \textit{ProGuard} configuration with a tool-specific syntax. Given the increased build times, reapplying and debugging a configuration change is no job for the impatient.
+
+\end{description}
+
+A \textit{Java} developer has the option to balance the pros and cons, or to run \textit{ProGuard} only in the release build process while disabling it during development. A \textit{Scala} developer, however, depends on \textit{ProGuard} and is forced to use it. This is due to the so called \textit{65k limit}. An \textit{Android} application is only allowed to contain 65,536 methods (including the application's libraries). If the application succeeds this limit, the build will fail. Developing with \textit{Scala} requires to depend on the \textit{scala-library} which already suffices to exceed this limit. \textit{Scala on Android} therefore requires the developer to maintain a proper \textit{ProGuard} configuration and to execute \textit{ProGuard} for every build.
+
+\subsection{Development environment}
+
+None of the popular \acp{IDE} (such as \textit{Android Studio}, \textit{IntelliJ IDEA} or \textit{Eclipse}) provide a seamless integration for \textit{Scala on Android}. This can be frustrating as the developer has to give up some of the convenience that his \ac{IDE} offered and instead run certain tasks manually via the command line.
