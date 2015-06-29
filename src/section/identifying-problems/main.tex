@@ -24,19 +24,19 @@ When talking to developers about \textit{Scala on Android} I planned to collect 
 
 \begin{description}
 
-	\item[Background in software development]\hfill \\
+	\item[Background in software development]\hfill
 
 	Getting an idea of the development stacks the interviewee is comfortable with and what let to the decision of giving \textit{Scala on Android} a try
 
-	\item[Experiences with Scala and Android]\hfill \\
+	\item[Experiences with Scala and Android]\hfill
 
 	Finding out if and how the technologies were used before they were brought together on the \textit{Android} platform with the intention to get a clear picture about the importance of prior knowledge
 
-	\item[Experiences with Scala on Android]\hfill \\
+	\item[Experiences with Scala on Android]\hfill
 
 	The core of the conversation; which tools have been used, what were the use cases, as well as the overall satisfaction and experiences in detail
 
-	\item[Opinions on Scala vs. Java on Android]\hfill \\
+	\item[Opinions on Scala vs. Java on Android]\hfill
 
 	Retrospectively, get the interviewee's evaluation whether switching to \textit{Scala} was worth the hassle and if he would stick to the technology in future projects
 
@@ -48,8 +48,202 @@ There are numerous classifications for the structure of an interview available, 
 
 The different interview types vary primarily in the strictness of their schedule. A standardized interview is formally structured and offers \enquote{each subject approximately the same stimulus so that the responses to the questions, ideally, will be comparable} \cite[p. 69]{berg01}. It is suitable for studies where researchers \enquote{have fairly solid ideas about the things they want to uncover during the interview} \cite[p. 69]{berg01} while leaving little room to discover anything beyond that.
 
-In contrast to the standardized interview, the unstandardized alternative does not rely on a questions schedule at all. The idea behind this strategy is that it is impossible to \enquote{know in advance what all the necessary questions are} \cite[p. 70]{berg01} and that the interviewer must instead come up with appropriate follow-up questions in the particular situations. This approach is useful to reveal information \enquote{when researchers are unfamiliar with respondents' life styles [...] or customs} \cite[p. 70]{berg01}.
+In contrast to the standardized interview, the unstandardized alternative does not rely on a questions schedule at all. The idea behind this strategy is that it is impossible to \enquote{know in advance what all the necessary questions are} \cite[p. 70]{berg01} and that the interviewer must instead come up with appropriate follow-up questions in the particular situations. This approach is useful to reveal information \enquote{when researchers are unfamiliar with respondents' life styles […] or customs} \cite[p. 70]{berg01}.
 
-A semistandardized interview is located somewhere between the strictly scheduled and completely unscheduled interview types. A researcher who conducts a semistandardized interview is equipped with a rough question schedule and has the freedom to digress and to go deeper into certain topics if he expects to gain further information which may be valuable to his research.
+A semistandardized interview is located somewhere between the strictly scheduled and completely unscheduled interview types. A researcher who conducts a semistandardized interview is equipped with a rough question schedule and has the freedom to digress and to go deeper into certain topics if he expects to gain further information which may be valuable to his research \cite[p. 70]{berg01}.
 
 I settled with the semistandardized interviewing technique for my research. A standardized interview seemed inappropriate as I aimed to learn about different perceptions and to gather insights which I missed during my exposure to \textit{Scala on Android}. Furthermore, I wanted to rely on some sort of schedule because I did not conduct interviews before and felt uncomfortable with the idea of coming up with ad-hoc questions as practiced in an unstandardized interview.
+
+\subsubsection{Interview schedule}
+
+Below is the question schedule that I derived from the interview outline. The questions are grouped in several topics which are first explained and annotated with information about which kind of information I intend to obtain and why I decided for this particular order.
+
+Questions on the second indention level served me as a reminder to digress deeper into certain topics but were not necessarily asked.
+
+\begin{enumerate}
+
+	\item \textbf{Introduction}
+
+	Introducing myself and the intentions of this interview to the interviewee, not disclosing my opinions. Furthermore, asking the respondent to introduce himself and to talk about his background in software development. In this section I aim to get a basic understanding of the interviewees working environment and habits as well as a basic idea of how happy he is to try out new technologies.
+
+	Also ask for permission to record the interview for the evaluation process, and assure that it will not be published and he will stay anonymous.
+
+	\begin{enumerate}
+
+		\item Could you please introduce yourself and tell me about your background in software development?
+
+		\begin{enumerate}
+
+			\item For how long have you been doing …?
+
+			\item What kind of projects do you work on?
+
+			\item What is your role in these projects?
+
+			\item What are your favorite software stacks?
+
+			\item How come you like / use … so much?
+
+			\item With how many fellow developers do you usually work on such projects?
+
+		\end{enumerate}
+
+		\item Do you code for a living?
+
+		\item Do you have hobby projects?
+
+	\end{enumerate}
+
+	\item \textbf{\textit{Scala on Android}}
+
+	Since the interviewee is expecting to talk about \textit{Scala on Android} this topic is placed right after the introduction. If I tried to talk about \textit{Scala} and \textit{Android} separately at this point, chances are that the interviewee constantly divagates to \textit{Scala on Android}. In this section I aim to gather the respondent's experiences, thoughts and emotions about the technology as detailed as possible.
+
+	\begin{enumerate}
+
+		\item What are your experiences with \textit{Scala on Android}?
+
+		\item Why did you try it?
+
+		\item How did you get started?
+
+		\begin{enumerate}
+
+			\item Which learning resources and tools did you use?
+
+			\item What caused the biggest troubles?
+
+			\item Was it painful?
+
+			\item Did you consider to plunk down and go back to \textit{Java} at some point?
+
+			\item Was it a team project?
+
+			\item What else didn't work out quite as you were expecting?
+
+		\end{enumerate}
+
+		\item Which libraries and tools did you use?
+
+		\begin{enumerate}
+
+			\item What are the differences to your \textit{Java on Android} setup?
+
+		\end{enumerate}
+
+		\item Did you use it for commercial or work related projects?
+
+		\begin{enumerate}
+
+			\item Are there any apps available which I can have a look at?
+
+		\end{enumerate}
+
+		\item How do you stay up to date with \textit{Scala on Android}?
+
+		\item What annoys you about \textit{Scala on Android}?
+
+		\begin{enumerate}
+
+			\item Compile time?
+
+			\item Build configuration?
+
+			\item ProGuard?
+
+			\item Testing?
+
+			\item Performance?
+
+			\item Community?
+
+			\item Documentation?
+
+		\end{enumerate}
+
+		\item Are you still using \textit{Scala on Android}?
+
+		\item Are you still using \textit{Java on Android}?
+
+		\item Which build tool plugin do you use?
+
+		\begin{enumerate}
+
+			\item Do you like it?
+
+			\item What do you think about its documentation?
+
+		\end{enumerate}
+
+	\end{enumerate}
+
+	\item \textbf{\textit{Scala} and \textit{Android}, separately}
+
+	After excessively talking about \textit{Scala on Android} I want to find out how well the interviewee knew each of the technologies before he combined them on the \textit{Android} platform.
+
+	\begin{enumerate}
+
+		\item Did you make experiences with \textit{Android} development before you brought \textit{Scala} in?
+
+		\begin{enumerate}
+
+			\item How did you get into \textit{Android} development?
+
+			\item When did you start to develop for the \textit{Android} platform?
+
+			\item Do you (still) like it?
+
+			\item What is your opinion about the \textit{Google}-\textit{Android} tool-chain (e.g. \textit{Gradle} and \textit{Android Studio})?
+
+		\end{enumerate}
+
+		\item Did you make experiences with \textit{Scala} development before you started with \textit{Scala on Android}?
+
+		\begin{enumerate}
+
+			\item How did you get into \textit{Scala} development?
+
+			\item When did you start to develop with \textit{Scala}?
+
+			\item Do you (still) like it?
+
+			\item What is your opinion about the \textit{Scala} ecosystem (e.g. \textit{sbt})?
+
+		\end{enumerate}
+
+	\end{enumerate}
+
+	\item \textbf{\textit{Scala} vs. \textit{Java} (on \textit{Android})}
+
+	By now I should be able to estimate how well the interviewee knows each of the languages, which puts an ad-hoc comparison of the technologies in perspective.
+
+	\begin{enumerate}
+
+		\item Which stack would you chose if you started a new project today?
+
+		\begin{enumerate}
+
+			\item Under which circumstances would you pick the other tool-chain?
+
+		\end{enumerate}
+
+		\item What are your favorite \textit{Scala} features that \textit{Java} does not offer?
+
+		\item Do you occasionally think that you are missing out on new tools and features when you are working with \textit{Scala on Android}?
+
+		\item Which path would you suggest to a freshman that wants to learn \textit{Android}, but has no experience in either \textit{Java} or \textit{Scala} yet?
+
+		\begin{enumerate}
+
+			\item What if he knew \textit{Scala} already?
+
+			\item What if he knew \textit{Android} already?
+
+		\end{enumerate}
+
+	\end{enumerate}
+
+	\item \textbf{Finish}
+
+	Give thanks for the interview, ask if there is something which the interviewee wanted to add and if he was interested in having an early look at the documentation to provide his thoughts and feedback.
+
+\end{enumerate}
