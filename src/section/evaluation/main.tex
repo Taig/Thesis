@@ -1,0 +1,109 @@
+\section{Evaluating the interviews}
+
+While post-processing the conversations, I relied on the voice recordings to classify the obtained information into the four interview outline categories. The next step was then to identify problems, mentioned by the interviewee, which could be resolved if there was a better documentation for the respective topics available. I refrained from applying quantitative measures in this process and honored issues that were only mentioned by one or two interviewees equally important as issues that arose more often if they seemed plausible to me.
+
+\subsection{Identified problems}
+
+\begin{description}
+
+	\item[Build tool]\hfill
+
+	Leveraging \textit{Scala} on the \textit{Android} platform can be a surprisingly difficult undertaking. Once the decision for \textit{Scala on Android} has been made, the  first obstacle that a novice faces is the choice of the build tool. There are plugins available for multiple build tools, but it is difficult to find out in which way they differ and which one suits the developer's requirements best.
+
+	\begin{description}
+
+		\item[Gradle]\hfill
+
+		Configured via the \textit{Groovy} programming language, officially documented and supported to be used with \textit{Android}
+
+		\item[\ac{sbt}]\hfill
+
+		Configured via the \textit{Scala} programming language, the de facto standard build-tool for \textit{Scala} projects
+
+		\item[Maven]\hfill
+
+		A well established build-tool in the \ac{JVM} environment, configured via \textit{XML}
+
+	\end{description}
+
+	Furthermore, since these plugins are community developed they tend to neglect certain features and are more likely to contain bugs because they are not as well-tried as the official tool-chain which is backed by \textit{Google}.
+
+	\item[ProGuard and the 65k-limit]\hfill
+
+	When the decision for a build tool has been made and the developer managed to setup a basic project he will now be confronted with \textit{ProGuard}. \textit{ProGuard} is a \ac{JVM} tool that is able to shrink, optimize and obfuscate byte code. It is included in the \textit{Android} tool-chain as an opt-in service since the very beginning. \textit{Java} developers may use it to minimize the application size by stripping out unused dependency classes or to make the code harder to reverse engineer by obfuscating identifiers. These services do unfortunately come with the price of two major downsides.
+
+	\begin{description}
+
+		\item[Increased build times]\hfill
+
+		When the program code has been compiled to \textit{Java} byte-code, \textit{ProGuard} analyzes it, removes unused code and obfuscates identifiers. This process is very time consuming and increases build times dramatically.
+
+		\item[Configuration]\hfill
+
+		\textit{ProGuard} naturally fails to analyze code dependencies that rely on runtime reflection or if a library references a \ac{JDK} class which is not part of the \textit{Android} \ac{SDK}. The developer therefore has to detect these issues in the library code and adjust the \textit{ProGuard} configuration with a tool-specific syntax. Given the increased build times, reapplying and debugging a configuration change is no job for the impatient.
+
+	\end{description}
+
+	A \textit{Java} developer has the option to balance the pros and cons, or to run \textit{ProGuard} only in the release build process while disabling it during development. A \textit{Scala} developer, however, depends on \textit{ProGuard} and is forced to use it. This is due to the so called \textit{65k limit}. An \textit{Android} application is only allowed to contain 65,536 methods (including the application's libraries). If the application succeeds this limit, the build will fail. Developing with \textit{Scala} requires to depend on the \textit{scala-library} which already suffices to exceed this limit. \textit{Scala on Android} therefore requires the developer to maintain a proper \textit{ProGuard} configuration and to execute \textit{ProGuard} for every build.
+
+	\item[Development environment]\hfill
+
+	None of the popular \acp{IDE} (such as \textit{Android Studio}, \textit{IntelliJ IDEA} or \textit{Eclipse}) provides a seamless integration for \textit{Scala on Android}. This can be frustrating as the developer has to give up some of the convenience that his \ac{IDE} offered and instead run certain tasks manually via the command line.
+
+	\item[Command line]\hfill
+
+	As a consequence of the lacking \ac{IDE} support, developers have to execute build, deployment and testing related tasks via the command line. This emerges to be a significant obstacles for people that are used to do all of this with the help of their \ac{IDE}. Furthermore, the \textit{Android} plugins for \textit{Gradle} and \textit{sbt} introduce a range of new commands that are difficult grasp, even for developers that are already comfortable with the build tool itself.
+
+	\item[Build configuration]\hfill
+
+	Similar to the issues people are having with the command line, configuring a build with additional plugin specific parameters requires a deep understanding of the available settings and their effects. This is a fundamental problem as most of the here listed problems must be resolved via the build configuration.
+
+	\item[Parcelable]\hfill
+
+	\textit{Parcelable} is an \textit{Android}-specific \ac{IPC} framework that serves as an alternative to \textit{Java's} \textit{Serializable} mechanism. It is significantly faster than the runtime reflection based \textit{Serializable} alternative because the developer has the obligation to spell out the entire serialization logic by himself. The \textit{Android} developer documentation highly recommends to rely on the \textit{Parcelable} framework even though its implementation is somewhat tedious. Besides implementing the \textit{Parcelable} interface, the developer has to fulfill an additional contract: creating a static field named \textit{CREATOR} which has to hold an instance of \textit{Parcelable.Creator}. This contract, however, can not be fulfilled when coding in \textit{Scala}, because the language does not have a concept of statics.
+
+	\item[Testing]\hfill
+
+	The \textit{Android} \ac{SDK} comes with support for unit- and instrumentation testing. Especially the latter is a book of seven seals in the \textit{Scala on Android} environment. It remains unclear if it is possible to integrate instrumentation tests with the current generation of  build tool plugins.
+
+	Furthermore, a \textit{Scala} developer would generally prefer to adopt a testing framework that is tailor-made for his language (e.g. \textit{ScalaTest}) rather than working with the provided \textit{jUnit} \ac{API}. Another desirable feature is to make use of \textit{Robolectric}, a famous library that allows to run \textit{Android} tests on the developer's \textit{JVM}, instead of deploying it to a device or emulator (which is a time-consuming process). Ideally, it should be possible to use \textit{ScalaTest} in combination with \textit{Robolectric}.
+
+	\item[Library projects]\hfill
+
+	Besides creating an executable \ac{APK}, an \textit{Android} codebase may also be distributed in the \ac{AAR} or \ac{APKLIB} format which serve the purpose of creating reusable components that may be incorporated into an \textit{Android} project as a dependency. These formats are very similar to the common \ac{JAR} (which can of course also be included into \textit{Android} projects) but extend it by adding \textit{Android}-specific resources to the package (such as the application manifest, graphics or internationalization files).
+
+	Learning how to configure a \textit{Scala on Android} build in order to create such a library project was a common desire among the interviewees.
+
+	\item[Packaging and signing]\hfill
+
+	An application is only ready for the official \textit{app store} when it is properly packaged (which requires some post-processing of the package, such as \textit{zipalign}) and signed with a valid developer certificate. There are several ways to achieve this goal, but it remains unclear how to automate this process in such a way so that it is not necessary to place cleartext password configuration files within the project (which should generally be avoided, but especially when working with \acp{VCS}).
+
+	\item[Learning resources]\hfill
+
+	It is difficult to find up-to-date information about \textit{Scala on Android}. On one hand, the search results are commonly very \textit{noisy} and include \textit{Android}-related topics which have no connection to \textit{Scala}. On the other hand, the resources that show up tend to be rather outdated and no longer correct. This is due to the fast development of the \textit{Scala} and \textit{Android} platform, and thus also the build tool plugins that try to keep up with this pace.
+
+	\item[Getting help]\hfill
+
+	In the interviews, people reported that they had a hard time trying to find somebody to take a look at their particular problems. At \textit{StackOverflow}, a famous online \textit{questions and answers} community for developers, their questions went unnoticed and they did not know who else to address. This caused them to get stuck on minor problems for days, causing lots of frustration.
+
+\end{description}
+
+\subsection{Out of scope}
+
+During the course of the interviews a couple of valid topics were mentioned which I had to drop from the list of solvable problems. This is primarily due to the lack of personal experience with those and, after further consideration, the resolution that I will not be able to acquire enough expertise in the limited time of this researching project to educate a public audience.
+
+\begin{description}
+
+	\item[Gradle]\hfill
+
+	Originally, the recommended build system for \textit{Android} \ac{SDK} applications used to be \textit{Apache Ant}. Later, when the first projects for \textit{Scala on Android} appeared, \ac{sbt} emerged to be the more reliable tool for the purpose and a small ecosystem libraries and projects began to originate around this approach. Then, in 2013, \textit{Google} announced the official migration to \textit{Gradle}, a \textit{Groovy} based build system for the \ac{JVM}. A plugin for a \textit{Gradle}-based \textit{Scala on Android} integration appeared shortly after and is becoming increasingly popular. It lowers the entry barrier significantly for \textit{Android} developers that already got used to \textit{Gradle}.
+
+	Since most \textit{Scala on Android} specific problems are solved by tweaking the build configuration, incorporating \textit{Gradle} into the documentation would have meant to investigate and solve each problem for both tools, \ac{sbt} and \textit{Gradle}.
+
+	\item[JNI]\hfill
+
+	\ac{JNI} is an interface that describes how a \textit{Java} application can interact with native code (\textit{C/C++}). In conjunction with the \textit{Android} \ac{NDK} the native program parts can be bundled with the \ac{ART} byte-cote code into one application. Given the documentation of the \textit{Scala on Android} \ac{sbt} plugin, this feature is also available to \textit{Scala} users.
+
+	Due to my lacking experience with native code and the observation that \ac{JNI} is only relevant to a minority of \textit{Scala} users, I decided to drop this topic.
+
+\end{description}
