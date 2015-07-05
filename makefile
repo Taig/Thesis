@@ -11,9 +11,9 @@ all: prepare
 		-exec aspell --lang=en --mode=tex check "{}" \;
 	# Issue two compilation runs, because latex..
 	cp -r ./src/* ./build/
-	cd ./build && pdflatex -shell-escape main.tex
+	cd ./build && pdflatex --shell-escape main.tex
 	cd ./build && bibtex main
-	cd ./build && pdflatex -shell-escape main.tex
+	cd ./build && pdflatex --shell-escape main.tex
 
 # Remove build/directory
 clean:

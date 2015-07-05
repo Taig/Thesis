@@ -1,4 +1,4 @@
-personal_ws-1.1 en 56 
+personal_ws-1.1 en 63 
 Liefery
 workflows
 sitemap
@@ -24,13 +24,15 @@ Robolectric
 Parcelable
 cleartext
 JVM
+src
+preprocessor
 hoc
 io
 JDK
 startup
 NDK
-CSS
 DNS
+CSS
 codebase
 CoffeeScript
 Serializable
@@ -40,18 +42,23 @@ VCS
 jUnit
 Dalvik
 IntelliJ
+svg
 APKLIB
+Nunjucks
 CDN
 Scala's
 IPC
 facto
 API
+preprocessors
 APK
 sbt
 zipalign
 SDK
+inkscape
 ScalaTest
 ProGuard
 templating
+jQuery
 semistandardized
 SEO

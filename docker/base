@@ -2,6 +2,8 @@ FROM		taig/latex
 
 MAINTAINER	Niklas Klein "mail@taig.io"
 
+RUN			apt-get update
+
 RUN			apt-get install -y make && \
 			apt-get clean
 
@@ -22,6 +24,10 @@ RUN			apt-get install -y python-pygments && \
 RUN			apt-get install -y aspell && \
 			apt-get clean && \
 			ln -s ~/thesis/dictionary ~/.aspell.en.pws
+
+# Install inkscape for svg processing
+RUN			apt-get install -y inkscape && \
+			apt-get clean
 
 RUN			mkdir /root/thesis
 WORKDIR		/root/thesis

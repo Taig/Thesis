@@ -16,7 +16,7 @@ While post-processing the conversations, I relied on the voice recordings to cla
 
 		Configured via the \textit{Groovy} programming language, officially documented and supported to be used with \textit{Android}
 
-		\item[\ac{sbt}]\hfill
+		\item[\ac{SBT}]\hfill
 
 		Configured via the \textit{Scala} programming language, the de facto standard build-tool for \textit{Scala} projects
 
@@ -52,7 +52,7 @@ While post-processing the conversations, I relied on the voice recordings to cla
 
 	\item[Command line]\hfill
 
-	As a consequence of the lacking \ac{IDE} support, developers have to execute build, deployment and testing related tasks via the command line. This emerges to be a significant obstacles for people that are used to do all of this with the help of their \ac{IDE}. Furthermore, the \textit{Android} plugins for \textit{Gradle} and \textit{sbt} introduce a range of new commands that are difficult grasp, even for developers that are already comfortable with the build tool itself.
+	As a consequence of the lacking \ac{IDE} support, developers have to execute build, deployment and testing related tasks via the command line. This emerges to be a significant obstacles for people that are used to do all of this with the help of their \ac{IDE}. Furthermore, the \textit{Android} plugins for \textit{Gradle} and \ac{SBT} introduce a range of new commands that are difficult grasp, even for developers that are already comfortable with the build tool itself.
 
 	\item[Build configuration]\hfill
 
@@ -96,13 +96,13 @@ During the course of the interviews a couple of valid topics were mentioned whic
 
 	\item[Gradle]\hfill
 
-	Originally, the recommended build system for \textit{Android} \ac{SDK} applications used to be \textit{Apache Ant}. Later, when the first projects for \textit{Scala on Android} appeared, \ac{sbt} emerged to be the more reliable tool for the purpose and a small ecosystem libraries and projects began to originate around this approach. Then, in 2013, \textit{Google} announced the official migration to \textit{Gradle}, a \textit{Groovy} based build system for the \ac{JVM}. A plugin for a \textit{Gradle}-based \textit{Scala on Android} integration appeared shortly after and is becoming increasingly popular. It lowers the entry barrier significantly for \textit{Android} developers that already got used to \textit{Gradle}.
+	Originally, the recommended build system for \textit{Android} \ac{SDK} applications used to be \textit{Apache Ant}. Later, when the first projects for \textit{Scala on Android} appeared, \ac{SBT} emerged to be the more reliable tool for the purpose and a small ecosystem libraries and projects began to originate around this approach. Then, in 2013, \textit{Google} announced the official migration to \textit{Gradle}, a \textit{Groovy} based build system for the \ac{JVM}. A plugin for a \textit{Gradle}-based \textit{Scala on Android} integration appeared shortly after and is becoming increasingly popular. It lowers the entry barrier significantly for \textit{Android} developers that already got used to \textit{Gradle}.
 
-	Since most \textit{Scala on Android} specific problems are solved by tweaking the build configuration, incorporating \textit{Gradle} into the documentation would have meant to investigate and solve each problem for both tools, \ac{sbt} and \textit{Gradle}.
+	Since most \textit{Scala on Android} specific problems are solved by tweaking the build configuration, incorporating \textit{Gradle} into the documentation would have meant to investigate and solve each problem for both tools, \ac{SBT} and \textit{Gradle}.
 
 	\item[JNI]\hfill
 
-	\ac{JNI} is an interface that describes how a \textit{Java} application can interact with native code (\textit{C/C++}). In conjunction with the \textit{Android} \ac{NDK} the native program parts can be bundled with the \ac{ART} byte-cote code into one application. Given the documentation of the \textit{Scala on Android} \ac{sbt} plugin, this feature is also available to \textit{Scala} users.
+	\ac{JNI} is an interface that describes how a \textit{Java} application can interact with native code (\textit{C/C++}). In conjunction with the \textit{Android} \ac{NDK} the native program parts can be bundled with the \ac{ART} byte-cote code into one application. Given the documentation of the \textit{Scala on Android} \ac{SBT} plugin, this feature is also available to \textit{Scala} users.
 
 	Due to my lacking experience with native code and the observation that \ac{JNI} is only relevant to a minority of \textit{Scala} users, I decided to drop this topic.
 
