@@ -12,11 +12,11 @@ With the intention to create a documentation in the form of a publicly available
 
 	Every feature on top of the basic content has to be implemented according to the strategy of \textit{progressive enhancement}. Meaning that a feature that requires the client's browser to have a certain ability (e.g. executing \textit{JavaScript} code) should never have a negative impact on browsers that are not able to fulfill the requirement (besides missing out on the feature in question).
 
-	As an illustrative example of this strategy, imagine a timezone specific \textit{DateTime} value embedded into the \ac{HTML}, such as \textit{Wed Jun 24 17:48:48 2015 +0200}. To improve readability, the \textit{JavaScript} \ac{API} \textit{Date.toLocaleString()} is used to convert the time according to the user's timezone (e.g. \textit{24.6.2015, 17:48:48}). If the client's \textit{JavaScript} engine did not implement this function, or the client does not run \textit{JavaScript} at all, the raw time information still has to be accessible.
+	As an illustrative example of this strategy, imagine a timezone specific \textit{DateTime} value embedded into the \ac{HTML}, such as \textit{Wed Jun 24 17:48:48 2015 +0200}. To improve readability, the \textit{JavaScript} \ac{API} \textit{Date.toLocaleString()} is used to convert the time according to the user's timezone (e.g. \textit{24.6.2015, 17:48:48}). If the client's \textit{JavaScript} engine did not implement this function, or the client does not run \textit{JavaScript} at all, the raw time information must still be accessible.
 
 	\item[Static]\hfill
 
-	The content has to be delivered as a static \ac{HTML} file and should not require any serverside processing. This simplifies hosting, improves response times and makes it easier to edit the sources.
+	The content has to be delivered as static \ac{HTML} files and should not require any serverside processing. This simplifies hosting, improves response times and makes it easier to edit the sources.
 
 	\item[Ajax]\hfill
 
@@ -44,11 +44,11 @@ With the intention to create a documentation in the form of a publicly available
 
 	\item[Navigation]\hfill
 
-	It has to be easy to advance through the pages. Skipping to the next or previous chapter has to always be a prominent option, but it should also be possible to reach any other page of the website.
+	It has to be easy to advance through the pages. Skipping to the next or previous chapter should be a prominent option, but also navigating to every other topic of the documentation.
 
 	\item[SEO]\hfill
 
-	There should always be meta tags and meaningful title tags embedded into the document. A good search engine ranking does not only increase visibility on the web, but with proper meta information it also allows the user to jump immediately to the content he cares about right from the search results.
+	Every page has to contain meta tags and meaningful titles embedded into the document. A good search engine ranking does not only increase visibility on the web, but with proper meta information it also allows the user to jump immediately to the content he cares about right from the search results.
 
 	\item[Syntax highlighting]\hfill
 
@@ -60,7 +60,7 @@ With the intention to create a documentation in the form of a publicly available
 
 	\item[Indicate outdated information]\hfill
 
-	Information that are at risk to become outdated should be highlighted as such. This may give the user at least an idea of why he can not reproduce the given instructions. In addition to that, the user should be able to see when was the last time a paragraph has been updated.
+	Information that are at risk to become outdated must be highlighted as such. If the user finds himself in a situation where he is unable to recreate given instructions he should first consider that the given information might no longer be valid rather than searching for mistakes in his project. In addition to that, the user should be able to see when was the last time a paragraph has been updated.
 
 	\item[Fun]\hfill
 
