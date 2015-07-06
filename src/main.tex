@@ -20,7 +20,7 @@
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt} 
 
-\newenvironment{code}[1]{\VerbatimEnvironment\begin{minted}{#1}}{\end{minted}}
+\newenvironment{code}[1]{\VerbatimEnvironment\begin{minted}[tabsize=2]{#1}}{\end{minted}}
 
 \begin{document}
 
@@ -39,13 +39,6 @@
 	\include{section/documentation-characteristics/main}
 	\include{section/creating-documentation/main}
 	\include{section/web/main}
-
-%	\begin{code}{scala}
-%	object Test extends App
-%	{
-%		val x = 3
-%	}
-%	\end{code}
 
 	\include{section/acronyms/main}
 

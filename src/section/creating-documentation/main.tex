@@ -72,11 +72,279 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 \begin{description}
 
+	\item[Content]\hfill
+
+	The documentation as a whole is subdivided in numerous chapters which are each represented by a respective \ac{HTML} page. A table of contents is located on the root page offering to jump right into a topic of choice.
+
+	\begin{enumerate}
+
+		\item Introduction
+
+		\item About this documentation
+
+		An explanation of page features, but also a call to not shy away from contributing
+
+		\item Prerequisites
+
+		\item Build tool
+
+		Comparison of \textit{Gradle} and \ac{SBT}, leaving room to add \textit{Gradle} documentation in the future
+
+		\begin{enumerate}
+
+			\item \ac{SBT}
+
+		\end{enumerate}
+
+		\item Project setup
+
+		\item Editors and \acp{IDE}
+
+		\begin{enumerate}
+
+			\item \textit{IntelliJ IDEA}
+
+			\item \textit{Android Studio}
+
+		\end{enumerate}
+
+		\item Working with the command line
+
+		\item Dependencies
+
+		\item \textit{ProGuard}
+
+		\begin{enumerate}
+
+			\item Cache
+
+		\end{enumerate}
+
+		\item \textit{Typed Resources (TR)}
+
+		\item \textit{Parcelable}
+
+		\item Testing
+
+		\begin{enumerate}
+
+			\item \textit{Robolectric}
+
+		\end{enumerate}
+
+		\item Library projects
+
+		\item Publishing
+
+	\end{enumerate}
+
+	Besides these content chapters, there is a handful of additional pages that aim to help interpreting the documentation or to solve problems of which I took notice through the interviews.
+
+	\begin{itemize}
+
+		\item Fork me on \textit{GitHub}
+
+		A typical catch phrase to point to a project's \textit{GitHub} repository. Clicking this link on the documentation website forwards the user directly to the respective \textit{GitHub} page.
+
+		\item Getting help
+
+		A list of development communities and resources that the reader should consider to consult when he gets stuck with \textit{Scala on Android}.
+
+		\item Sources
+
+		A large index of noteworthy websites (along with a content description) that contain information which might be relevant to further educate about a certain topic.
+
+		\item Software
+
+		A list of the software that was used to create the examples in the documentation. It also contains the particular version of the software as well as a download link.
+
+		\item Abbreviations
+
+		An abbreviation index.
+
+	\end{itemize}
+
 	\item[Responsive design]\hfill
-	
-	\begin{figure}[h]
+
+	\begin{figure}[ht]
 		\makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{asset/responsive-design.pdf}}
 		\caption{Side by side comparison of the documentation website on common screen sizes}
+		\label{responsive-design}
 	\end{figure}
+
+	Through \ac{CSS} \textit{Media Queries} the page automatically adjusts its properties in such way a that a pleasant reading experiences on all screen sizes and densities can always be guaranteed. Included graphics and icons are, wherever possible, delivered as \ac{SVG} assets. Furthermore, the page does refrain from using mouse hover events for crucial interaction since these would be inaccessible for mobile visitors with touchscreens (see figure \ref{responsive-design}).
+
+	\item[Navigation]\hfill
+
+	On the end of each chapter the user has the possibility to advance to the next topic to provide a natural reading flow (see figure \ref{story-telling}).
+
+	Attached to the sticky header, bar there is also a navigation hidden behind the \textit{hamburger} icon that enables the user to jump to an arbitrary chapter (see figure \ref{navigation}).
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/story-telling.png}
+		\caption{Footer navigation that contains a link to the previous and next chapter}
+		\label{story-telling}
+	\end{figure}
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/navigation.png}
+		\caption{Main navigation, attached to the sticky header}
+		\label{navigation}
+	\end{figure}
+
+	\item[\textit{Metabox}]\hfill
+
+	Next to each paragraph, there is a signal reception icon with the purpose to indicate information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} through to \textit{Sustainable} and is a representation of my personal impressions which I gathered while working with \textit{Scala on Android} or researched the particular topic (see figure \ref{reception-icons}).
+
+	\begin{figure}[ht]
+		\center
+		\includegraphics[width=6cm]{asset/reception-icons.png}
+		\caption{Signal reception icons to indicate information reliability. \textit{Fragile} (left, red) and \textit{Moderate} (middle, orange), \textit{Sustainable} (right, green).}
+		\label{reception-icons}
+	\end{figure}
+
+	Clicking on one of these signal icons leads to a \textit{Metabox} showing up. It contains an additional textual description of the information reliability, but also the date when the paragraph has been edited lately, enabling the reader to interpret the ranking in this context (see figure \ref{metabox}).
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/metabox.png}
+		\caption{A \textit{Metabox} that shows a \textit{Moderate} information reliability ranking.}
+		\label{metabox}
+	\end{figure}
+
+	Another important element of the \textit{Metabox} is the \enquote{Edit on \textit{GitHub}} link. When clicked, a new tab with a text editor appears, encouraging the user to make changes. The text editor is part of the \textit{GitHub} website and once an edit has been made, a \textit{pull-request} is automatically created that I, as the the project maintainer, may then review and merge into the project to apply the patch. This approach provides a convenient collaboration workflow with the underlying \ac{VCS} and also reliefs me from the struggle to develop a similar feature.
+
+	\item[Further reading]\hfill
+
+	At the end of most chapters is the \enquote{Further reading} section. It contains links to articles and websites I used in order to put the provided information together. Since the overall structure of this section is the same on every page and numerous links were relevant to multiple chapters, I constructed a central sources index which contains entries that are shaped as shown below.
+
+	\begin{code}{js}
+'android':
+{
+	description: 'Official website',
+	url: 'http://www.android.com/',
+	title: 'Android'
+},
+'android-api-guides':
+{
+	description: 'Official documentation',
+	url: 'https://developer.android.com/guide/index.html',
+	title: 'Android API Guides'
+},
+...
+	\end{code}
+
+	With the help of the \ac{HTML} templating engine I could then create a function \texttt{section\_further\_reading()} that generates the section with minimal effort (see figure \ref{further-reading}).
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/further-reading.png}
+		\caption{The further reading section at the end of a chapter.}
+		\label{further-reading}
+	\end{figure}
+
+	\begin{code}{js}
+section_further_reading( [ 'android', 'android-api-guides' ] );
+	\end{code}
+
+	Based on the index, the entire sources page is also generated automatically as part of the build process.
+
+	\item[Abbreviations]\hfill
+
+	Similar to the sources index, there is also a name index. I found myself repeating names of companies and technologies all over the place and intended to display them with an italic font. Additionally, in many cases, there are also common abbreviations for these names. To stop repeating myself and to be less prone to errors and inconsistencies, I introduced the names index.
+
+	\begin{code}{js}
+...
+'robolectric': { name: 'Robolectric' },
+'robotest': { name: 'RoboTest' },
+'sbt':
+{
+	abbreviation: 'sbt',
+	name: 'Scala Build Tool'
+},
+'sbt-plugin': { name: 'Android SDK Plugin for SBT' },
+...
+	\end{code}
+
+	Allowing me to pull in names from the index into the template in this fashion:
+
+	\begin{code}{js}
+names.get( 'robolectric' ) // <em>Robolectric</em>
+names.get( 'sbt' ) // <em>Scala Build Tool (sbt)</em>
+names.abbr( 'sbt' ) // <abbr title="Scala Build Tool">sbt</abbr>
+names.name( 'sbt' ) // <em>Scala Build Tool</em>
+	\end{code}
+
+	The major gain of this approach if the semantically valuable rendering of abbreviations with the \texttt{<abbr />} tag. If a reader is unfamiliar with an abbreviation, the title tooltip reveals the full meaning.
+
+	Furthermore, I used all entries that contain a name and an abbreviation value to render the abbreviations page as part of the build process.
+
+	\item[Highlighted paragraphs]\hfill
+
+	A major reason that brought me to replace \textit{Markdown} with an \ac{HTML} templating system was the desire to highlight paragraphs that should stand out from the rest of the content. In \textit{Markdown} documents this could be achieved by embedding \ac{HTML} (which defeats the purpose of \textit{Markdown}) or, a surprisingly common practice, by abusing the blockquote syntax for this purpose. The templating engine allowed me to create a simple function that takes care of generating an appropriate markup, including an icon that illustrates why a paragraph was highlighted (see figures \ref{alert} and \ref{blockquote}).
+
+	\begin{code}{html}
+{% call alert( 'warning' ) %}
+	<p>Lorem Ipsum</p>
+{% end call %}
+	\end{code}
+
+	This works for common text paragraphs, blockquotes and also code blocks without abusing \ac{HTML} elements in a context where they do not belong.
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/alert.png}
+		\caption{An example of a paragraph that is highlighted as an alert box to draw attention.}
+		\label{alert}
+	\end{figure}
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/blockquote.png}
+		\caption{An example of a blockquote that is styled in the fashion of a highlighted paragraph.}
+		\label{blockquote}
+	\end{figure}
+
+	\item[Syntax highlighting]\hfill
+
+	In terms of styling, code blocks are basically just highlighted paragraphs (see figure \ref{syntax-highlighting}). But they were designed in such a way that the code may be placed in a separate file rather than inserting right into the \texttt{alert()} function body.
+
+	\begin{code}{js}
+// Render code file and apply Scala syntax highlighting
+code( 'page/proguard/configuration.scala', 'scala' )
+	\end{code}
+
+	The actual highlighting of the program code is done by \textit{highlight.js} which is usually executed by the client. But since it was also possible to easily integrate it into the \textit{Gulp} build process I preferred to encode the syntax highlighting into the delivered \ac{HTML} documents. This way the client does not need to load the additional \textit{JavaScript} dependency and can also benefit from the feature when \textit{JavaScript} is not available.
+
+	\begin{figure}[ht]
+		\includegraphics[width=\textwidth]{asset/syntax-highlighting.png}
+		\caption{An example of code blocks that have syntax highlighting applied.}
+		\label{syntax-highlighting}
+	\end{figure}
+
+	\item[\textit{Hello Scala}]\hfill
+
+	Besides documenting how to set up and configure a \textit{Scala on Android} project I saw the need to create a comprehensive and executable project that implements the described practices. A lightweight configuration that is preconfigured with common dependencies (such as the \textit{Android} support libraries) and test cases. Just like the documentation, the \textit{Hello Scala} project is available on \textit{GitHub} and is intended to be cloned in order to have an up to date project template. The \textit{Scala on Android} documentation contains numerous references to its sister project, pointing out that there is a working example waiting to be explored (see figure \ref{hello-scala}).
+
+	\begin{figure}[ht]
+		\center
+		\includegraphics[width=0.6\textwidth]{asset/hello-scala.png}
+		\caption{A screenshot of the \textit{Hello Scala} sample application}
+		\label{hello-scala}
+	\end{figure}
+
+	\textit{HelloScala} aims to meet three important needs:
+
+	\begin{description}
+
+		\item[Curiosity]\hfill
+
+		Newcomers should be able to clone and get it running on their device with minimal effort. Hoping a demonstrating of how easy a \textit{Scala on Android} set up can be encourages the visitor to give \textit{Scala on Android} a serious try.
+
+		\item[Documentation]\hfill
+
+		As it implements the best practices advertised in the documentation it serves as a functional showcase and learning resource.
+
+		\item[Scaffolding]\hfill
+
+		Rather than starting a new project from scratch, it should be a considerable alternative to clone the \textit{HelloScala} project as the foundation. It features a sophisticated \ac{SBT} configuration that can easily be trimmed down to specific needs rather than gathering up necessary configuration values from the web.
+
+	\end{description}
 
 \end{description}
