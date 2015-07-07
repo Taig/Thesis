@@ -166,7 +166,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	\item[Responsive design]\hfill
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{asset/responsive-design.pdf}}
 		\caption{Side by side comparison of the documentation website on common screen sizes}
 		\label{responsive-design}
@@ -180,13 +180,13 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	Attached to the sticky header, bar there is also a navigation hidden behind the \textit{hamburger} icon that enables the user to jump to an arbitrary chapter (see figure \ref{navigation}).
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/story-telling.png}
 		\caption{Footer navigation that contains a link to the previous and next chapter}
 		\label{story-telling}
 	\end{figure}
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/navigation.png}
 		\caption{Main navigation, attached to the sticky header}
 		\label{navigation}
@@ -196,7 +196,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	Next to each paragraph, there is a signal reception icon with the purpose to indicate information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} through to \textit{Sustainable} and is a representation of my personal impressions which I gathered while working with \textit{Scala on Android} or researched the particular topic (see figure \ref{reception-icons}).
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\center
 		\includegraphics[width=6cm]{asset/reception-icons.png}
 		\caption{Signal reception icons to indicate information reliability. \textit{Fragile} (left, red) and \textit{Moderate} (middle, orange), \textit{Sustainable} (right, green).}
@@ -205,7 +205,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	Clicking on one of these signal icons leads to a \textit{Metabox} showing up. It contains an additional textual description of the information reliability, but also the date when the paragraph has been edited lately, enabling the reader to interpret the ranking in this context (see figure \ref{metabox}).
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/metabox.png}
 		\caption{A \textit{Metabox} that shows a \textit{Moderate} information reliability ranking.}
 		\label{metabox}
@@ -235,7 +235,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	With the help of the \ac{HTML} templating engine I could then create a function \texttt{section\_further\_reading()} that generates the section with minimal effort (see figure \ref{further-reading}).
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/further-reading.png}
 		\caption{The further reading section at the end of a chapter.}
 		\label{further-reading}
@@ -289,13 +289,13 @@ names.name( 'sbt' ) // <em>Scala Build Tool</em>
 
 	This works for common text paragraphs, blockquotes and also code blocks without abusing \ac{HTML} elements in a context where they do not belong.
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/alert.png}
 		\caption{An example of a paragraph that is highlighted as an alert box to draw attention.}
 		\label{alert}
 	\end{figure}
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/blockquote.png}
 		\caption{An example of a blockquote that is styled in the fashion of a highlighted paragraph.}
 		\label{blockquote}
@@ -312,7 +312,7 @@ code( 'page/proguard/configuration.scala', 'scala' )
 
 	The actual highlighting of the program code is done by \textit{highlight.js} which is usually executed by the client. But since it was also possible to easily integrate it into the \textit{Gulp} build process I preferred to encode the syntax highlighting into the delivered \ac{HTML} documents. This way the client does not need to load the additional \textit{JavaScript} dependency and can also benefit from the feature when \textit{JavaScript} is not available.
 
-	\begin{figure}[ht]
+	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/syntax-highlighting.png}
 		\caption{An example of code blocks that have syntax highlighting applied.}
 		\label{syntax-highlighting}
@@ -324,7 +324,7 @@ code( 'page/proguard/configuration.scala', 'scala' )
 
 	\begin{figure}[ht]
 		\center
-		\includegraphics[width=0.6\textwidth]{asset/hello-scala.png}
+		\includegraphics[width=0.5\textwidth]{asset/hello-scala.png}
 		\caption{A screenshot of the \textit{Hello Scala} sample application}
 		\label{hello-scala}
 	\end{figure}
