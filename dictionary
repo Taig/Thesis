@@ -1,4 +1,4 @@
-personal_ws-1.1 en 80 
+personal_ws-1.1 en 81 
 Liefery
 HelloScala
 workflows
@@ -12,6 +12,7 @@ scala
 url
 unstandardized
 StackOverflow
+interopable
 divagates
 GitHub
 github
