@@ -9,9 +9,12 @@
 \usepackage{cite}
 \usepackage{courier}
 \usepackage[autostyle=true]{csquotes}
+\usepackage{diagbox}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage[framemethod=tikz]{mdframed}
 \usepackage[outputdir=../build]{minted}
+\usepackage{pbox}
 \usepackage{setspace}
 \usepackage{sidecap}
 
@@ -21,6 +24,20 @@
 \setlength{\parindent}{0pt} 
 
 \newenvironment{code}[1]{\VerbatimEnvironment\begin{minted}[tabsize=2]{#1}}{\end{minted}}
+
+\mdfdefinestyle{highlight-style}{
+	rightline=true,
+	innerleftmargin=10,
+	innerrightmargin=10,
+	outerlinewidth=3pt,
+	topline=false,
+	rightline=true,
+	bottomline=false,
+	skipabove=\topsep,
+	skipbelow=\topsep
+}
+
+\newenvironment{highlight}[1]{\begin{mdframed}[style=highlight-style,frametitle=#1]}{\end{mdframed}}
 
 \begin{document}
 
@@ -36,6 +53,7 @@
 	\include{section/identifying-problems/main}
 	\include{section/conducting/main}
 	\include{section/evaluation/main}
+	\include{section/interview-reliability/main}
 	\include{section/documentation-characteristics/main}
 	\include{section/creating-documentation/main}
 	\include{section/web/main}

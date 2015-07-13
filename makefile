@@ -7,6 +7,7 @@ all: prepare
 	find . -wholename "./src/*.tex" \
 		! -path "./src/section/cover/*" \
 		! -path "./src/section/affidavit/*" \
+		! -path "./src/main.tex" \
 		! -path "./src/main.bib" \
 		-exec aspell --lang=en --mode=tex check "{}" \;
 	# Issue two compilation runs, because latex..

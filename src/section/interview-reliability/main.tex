@@ -1,0 +1,33 @@
+\section{Interview reliability}
+
+It is now necessary to clarify whether the chosen researching method, conducting interviews, was a reasonable approach to reveal a developer's potential obstacles when dealing with \textit{Scala on Android}. Odds are that this strategy left significant information undiscovered. Equally questionable is whether five interviews sufficed to gather the desired information. In order to get a perception of the information that might have been missed out, it is helpful to examine the actually gathered information.
+
+A suitable measure for this purpose is to analyze the interviews (in order of conduct) for the amount of new problems that each of them revealed. Arguing that if the last interviews did only result in little or no additional insights, this implies that the information to be gathered might be exhausted and conducting further interviews would thus not reveal any new insights.
+
+\begin{table}[b]
+	\begin{tabular}{|l|c|c|c|c|c|c|}\hline
+		\diagbox{\textbf{Problem}}{\textbf{Interview}} & \textbf{Author} & \textbf{I} & \textbf{II} & \textbf{III} & \textbf{IV} & \textbf{V} \\ \hline
+		\textbf{\textit{Gradle}}			& • &   & • &   &   & • \\ \hline
+		\textbf{\ac{SBT}}					& • & • &   & • & • & • \\ \hline
+		\textbf{\textit{Maven}}				& • &   &   &   &   &   \\ \hline
+		\textbf{\textit{ProGuard}}			& • & • & • & • & • & • \\ \hline
+		\textbf{Development environment}	& • & • &   & • & • & • \\ \hline
+		\textbf{Command line}				&   &   &   & • &   & • \\ \hline
+		\textbf{Build configuration}		& • & • &   & • & • & • \\ \hline
+		\textbf{Parcelable}					& • &   & • &   &   &   \\ \hline
+		\textbf{Testing}					& • & • & • & • &   & • \\ \hline
+		\textbf{Debugging}					&   & • & • &   &   &   \\ \hline
+		\textbf{Library projects}			& • &   & • &   &   &   \\ \hline
+		\textbf{Packaging and signing}		& • &   &   & • & • &   \\ \hline
+		\textbf{Learning resources}			&   & • & • & • & • &   \\ \hline
+		\textbf{Getting help}				&   &   & • &   &   & • \\ \hline
+		\textbf{JNI}						&   &   &   &   &   & • \\ \hline \hline
+		\pbox{10cm}{Amount of new problems\\(compared to previous interviews)} & - & 2 & 1 & 1 & 0 & 1 \\ \hline
+	\end{tabular}
+	\caption{Comparison of the \textit{Scala on Android} related problems that were revealed in each interview. The first column, \textit{Author}, shows the problems which I put together from my own experience before conducting the interviews. In the last row, there is a numeric summary of how many new problems were discovered in every interview.}
+	\label{interviews-comparison}
+\end{table}
+
+As shown in table \ref{interviews-comparison}, interview \texttt{I} helped to discover two additional problems which I did not come up with during my preparations. The second and third interviews revealed one issue each. The fourth interview did not introduce any new insights. If the last interview wouldn't have revealed another issue, the trend would suggest that the amount of undiscovered problems is exhausted. Instead it appears like the fourth interview, yielding no new information, is an anomaly.
+
+When taking a closer look at interview \texttt{V} it strikes that the new problem, \ac{JNI}, is the only issue that has not been mentioned by anyone else. The topic is furthermore considered as \textit{out of scope} for being only relevant to a minority of \textit{Java}, let alone \textit{Scala}, developers. From this perspective it seems reasonable that \ac{JNI} may be neglected in this context. It is thus a valid conclusion that conducting more interviews may not have necessarily lead to significant new insights because the two latest encounters could not add any valuable new information.

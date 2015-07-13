@@ -14,7 +14,7 @@ Before scaffolding the actual project or picking tools that might help me puttin
 
 	\item[Collaboration]\hfill
 
-	Each project has an issue tracker that allows \textit{GitHub} users to notify the repository maintainer about problems he discovered. These issues are public and everybody is free to join the discussion to propose solutions or suggestions.
+	Each project has an issue tracker that allows \textit{GitHub} users to notify the repository maintainer about problems they discovered. These issues are public and everybody is free to join the discussion to propose solutions or suggestions.
 
 	Taking this one step further, users can enrich issues by adding code (or textual content) that attempts to solve the problems they were facing. This procedure is then called a \textit{pull-request}. For the repository maintainer, applying the provided patches to the project is as easy as pushing a single button to confirm.
 
@@ -24,7 +24,7 @@ Before scaffolding the actual project or picking tools that might help me puttin
 
 	Every directory and file of a repository that is hosted on \textit{GitHub} can be browsed on their website. In addition to that, files can also be edited with an online text editor which allows to quickly update content without cloning the repository. This is especially useful for text-based projects like documentations because it is not necessary to compile or test the project before submitting a patch.
 
-	Another positive side effect of this approach, is that a user's edits automatically result in \textit{pull-request} which can then be easily audited and approved as described earlier.
+	Another positive side effect of this approach, is that a user's edits automatically result in a \textit{pull-request} which can then be easily audited and approved as described earlier.
 
 	\item[Popularity]\hfill
 
@@ -34,7 +34,7 @@ Before scaffolding the actual project or picking tools that might help me puttin
 
 \subsection{Static page generator}
 
-Although the goal of the documentation is to only consist of static \ac{HTML} files, I intended to integrate a static page generator in order to optimize the development process. This leads to a build step, necessary to compile the source code to basic \ac{HTML} files before committing to \textit{gh-pages}. But that's a low price to pay, considering the indispensable advantages of this approach.
+Although the goal of the documentation is to only consist of static \ac{HTML} files, I intended to integrate a static page generator in order to optimize the development process. This leads to a build step, necessary to compile the source code to \ac{HTML} files before committing to \textit{gh-pages}. But that's a low price to pay, considering the indispensable advantages of this approach.
 
 \begin{description}
 
@@ -62,9 +62,9 @@ Although the goal of the documentation is to only consist of static \ac{HTML} fi
 
 I originally started with a static page generator, called \textit{Roots}, that promised to solve most of these problems out of the box. It also integrates \textit{Markdown} processing which I intended to use to format textual content, because it is easier to maintain than \ac{HTML} code. But I realized rather quickly that such a tool is too specific and limiting for my purposes (especially regarding the custom build steps). Also \textit{Markdown} emerged to not fit in, as it didn't allow me to specify \ac{HTML} classes which would have been necessary to highlight certain paragraphs. My intention to create central sitemap, resource links and abbreviation indexes were also at risk as they could only be used with \textit{Markdown} by creating custom extensions. This cluttered up the documents and was in no way better to maintain than a more versatile \ac{HTML} templating system.
 
-As a consequence of of these circumstances I migrated to \textit{Gulp}. \textit{Gulp} is, broadly spoken, a \textit{JavaScript} build tool for front-end development. The tool is famous for its simplicity and flexibility, but its greatest strength is the community around it that created thousands of plugins for every imaginable use case. Setting it up and getting the basics working to a similar range of functions like \textit{Roots} provides them was initially much more challenging. But in the long run I benefited from its flexibility as I was not forced to make a single compromise in this context.
+As a consequence of of these circumstances I migrated to \textit{Gulp}. \textit{Gulp} is, broadly spoken, a \textit{JavaScript} build tool for front-end development. The tool is famous for its simplicity and flexibility, but its greatest strength is the community around it that created thousands of plugins for every imaginable use case. Setting it up and getting the basics working to a similar range of functions like \textit{Roots} provides them was initially very challenging. But in the long run I benefited from its flexibility as I was not forced to make a single compromise in this context.
 
-Instead of \textit{Markdown} I switched to an \ac{HTML} templating system called \textit{Nunjucks}. It allowed me to split up my files and include them as necessary. To organize textual content as clearly as possible from the overall \ac{HTML} structure I was able to separate these concerns so much that content files only consist of headline, paragraph and image tags to then be included into the page, keeping them maintain- and readable.
+Instead of \textit{Markdown} I switched to an \ac{HTML} templating system called \textit{Nunjucks}. It allowed me to split up my files and include them as necessary. To organize textual content separatly from the \ac{HTML} markup I was able to structure the files in such a way that content files only consist of headline, paragraph and image tags to then be included into the page, keeping them maintain- and readable.
 
 To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into the build chain as I made the experience in previous projects that it simplifies development tremendously. Also, I found myself writing very little \textit{JavaScript} code, so I kept that as simple as possible, not including any preprocessors or other additional tools except for \textit{jQuery}.
 
@@ -148,7 +148,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 		\item Getting help
 
-		A list of development communities and resources that the reader should consider to consult when he gets stuck with \textit{Scala on Android}.
+		A list of development communities and resources that the readers should consider to consult when they get stuck with \textit{Scala on Android}.
 
 		\item Sources
 
@@ -156,7 +156,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 		\item Software
 
-		A list of the software that was used to create the examples in the documentation. It also contains the particular version of the software as well as a download link.
+		A list of the software that was used to create the examples in the documentation. It mentions the particular version of the software and a download link.
 
 		\item Abbreviations
 
@@ -194,7 +194,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	\item[\textit{Metabox}]\hfill
 
-	Next to each paragraph, there is a signal reception icon with the purpose to indicate information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} through to \textit{Sustainable} and is a representation of my personal impressions which I gathered while working with \textit{Scala on Android} or researched the particular topic (see figure \ref{reception-icons}).
+	Next to each paragraph is a signal reception icon that has the purpose of indicating information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} through to \textit{Sustainable} and is a representation of my personal impressions which I gathered while working with \textit{Scala on Android} or researched the particular topic (see figure \ref{reception-icons}).
 
 	\begin{figure}[]
 		\center
@@ -273,7 +273,7 @@ names.abbr( 'sbt' ) // <abbr title="Scala Build Tool">sbt</abbr>
 names.name( 'sbt' ) // <em>Scala Build Tool</em>
 	\end{code}
 
-	The major gain of this approach if the semantically valuable rendering of abbreviations with the \texttt{<abbr />} tag. If a reader is unfamiliar with an abbreviation, the title tooltip reveals the full meaning.
+	The major gain of this approach is the semantically valuable rendering of abbreviations with the \texttt{<abbr />} tag. If a reader is unfamiliar with an abbreviation, the title tooltip reveals the full meaning.
 
 	Furthermore, I used all entries that contain a name and an abbreviation value to render the abbreviations page as part of the build process.
 
