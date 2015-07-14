@@ -1,10 +1,11 @@
-personal_ws-1.1 en 80 
+personal_ws-1.1 en 82 
 HelloScala
 workflows
 sitemap
 GitHub's
 monospace
 JNI
+noob
 toLocaleString
 blockquotes
 scala
@@ -45,7 +46,7 @@ blockquote
 NDK
 Lorem
 DNS
-CSS
+css
 html
 js
 codebase
@@ -67,6 +68,7 @@ IPC
 facto
 api
 preprocessors
+Nik
 APK
 sbt
 zipalign
