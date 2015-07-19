@@ -14,17 +14,17 @@ Before scaffolding the actual project or picking tools that might help me puttin
 
 	\item[Collaboration]\hfill
 
-	Each project has an issue tracker that allows \textit{GitHub} users to notify the repository maintainer about problems they discovered. These issues are public and everybody is free to join the discussion to propose solutions or suggestions.
+	Each project has an issue tracker that allows \textit{GitHub} users to notify the repository maintainer about problems they discover. These issues are public and everybody is free to join the discussion to propose solutions or suggestions.
 
 	Taking this one step further, users can enrich issues by adding code (or textual content) that attempts to solve the problems they were facing. This procedure is then called a \textit{pull-request}. For the repository maintainer, applying the provided patches to the project is as easy as pushing a single button to confirm.
 
-	To simplify the audition process of \textit{pull-requests} it is possible to integrate third-party \ac{CI} services that automatically compile and test proposed changes and then add the their results and logs to the issue discussion.
+	To simplify the audition process of \textit{pull-requests} it is possible to integrate third-party \ac{CI} services that automatically compile and test proposed changes and then add their results and logs to the issue discussion.
 
 	\item[Content editor]\hfill
 
-	Every directory and file of a repository that is hosted on \textit{GitHub} can be browsed on their website. In addition to that, files can also be edited with an online text editor which allows to quickly update content without cloning the repository. This is especially useful for text-based projects like documentations because it is not necessary to compile or test the project before submitting a patch.
+	Every directory and file of a repository that is hosted on \textit{GitHub} can be browsed on their website. In addition to that, files can also be edited with an online text editor that allows to quickly update content without cloning the repository. This is especially useful for text-based projects like documentations because it is not necessary to compile or test the project before submitting a patch.
 
-	Another positive side effect of this approach, is that a user's edits automatically result in a \textit{pull-request} which can then be easily audited and approved as described earlier.
+	Another positive side effect of this approach is that a user's edits automatically result in a \textit{pull-request} which can then be easily audited and approved as described earlier.
 
 	\item[Popularity]\hfill
 
@@ -34,7 +34,7 @@ Before scaffolding the actual project or picking tools that might help me puttin
 
 \subsection{Static page generator}
 
-Although the goal of the documentation is to only consist of static \ac{HTML} files, I intended to integrate a static page generator in order to optimize the development process. This leads to a build step, necessary to compile the source code to \ac{HTML} files before committing to \textit{gh-pages}. But that's a low price to pay, considering the indispensable advantages of this approach.
+Although the goal of the documentation is to consist of static \ac{HTML} files only, I intended to integrate a static page generator in order to optimize the development process. This leads to a build step, necessary to compile the source code to \ac{HTML} files before committing to \textit{gh-pages}. But that's a low price to pay, considering the indispensable advantages of this approach.
 
 \begin{description}
 
@@ -52,7 +52,7 @@ Although the goal of the documentation is to only consist of static \ac{HTML} fi
 
 	\item[Custom tasks]\hfill
 
-	An important requirement for the means of the documentation is the integration of custom build steps. They offer great flexibility and room for improvements. This way it is possible, for instance, to extract file information like the last time of an edit and inject them into the document, rather than maintaining this information manually. Or to apply syntax highlighting of code snippets at build time instead of relying on client sided code to perform such an optimization.
+	An important requirement for the means of the documentation is the integration of custom build steps. They offer great flexibility and room for improvements. This way it is possible, for instance, to extract file information like the last time of an edit and inject them into the document, rather than maintaining this information manually.
 
 	\item[Post processing]\hfill
 
@@ -62,9 +62,9 @@ Although the goal of the documentation is to only consist of static \ac{HTML} fi
 
 I originally started with a static page generator, called \textit{Roots}, that promised to solve most of these problems out of the box. It also integrates \textit{Markdown} processing which I intended to use to format textual content, because it is easier to maintain than \ac{HTML} code. But I realized rather quickly that such a tool is too specific and limiting for my purposes (especially regarding the custom build steps). Also \textit{Markdown} emerged to not fit in, as it didn't allow me to specify \ac{HTML} classes which would have been necessary to highlight certain paragraphs. My intention to create central sitemap, resource links and abbreviation indexes were also at risk as they could only be used with \textit{Markdown} by creating custom extensions. This cluttered up the documents and was in no way better to maintain than a more versatile \ac{HTML} templating system.
 
-As a consequence of of these circumstances I migrated to \textit{Gulp}. \textit{Gulp} is, broadly spoken, a \textit{JavaScript} build tool for front-end development. The tool is famous for its simplicity and flexibility, but its greatest strength is the community around it that created thousands of plugins for every imaginable use case. Setting it up and getting the basics working to a similar range of functions like \textit{Roots} provides them was initially very challenging. But in the long run I benefited from its flexibility as I was not forced to make a single compromise in this context.
+As a consequence of these circumstances I migrated to \textit{Gulp}. \textit{Gulp} is, broadly spoken, a \textit{JavaScript} build tool for front-end development. The tool is famous for its simplicity and flexibility, but its greatest strength is the community around it that created thousands of plugins for every imaginable use case. Setting it up and getting the basics working to a similar range of functions like \textit{Roots} provides them was initially very challenging. But in the long run I benefited from its flexibility as I was not forced to make a single compromise in this context.
 
-Instead of \textit{Markdown} I switched to an \ac{HTML} templating system called \textit{Nunjucks}. It allowed me to split up my files and include them as necessary. To organize textual content separately from the \ac{HTML} markup I was able to structure the files in such a way that content files only consist of headline, paragraph and image tags to then be included into the page, keeping them maintain- and readable.
+Instead of \textit{Markdown} I switched to an \ac{HTML} templating system called \textit{Nunjucks}. It allowed me to split up my files and include them as necessary. To organize textual content separately from the \ac{HTML} markup I was able to structure the files in such a way that content files only consist of headline, paragraph and image tags, keeping them maintain- and readable.
 
 To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into the build chain as I made the experience in previous projects that it simplifies development tremendously. Also, I found myself writing very little \textit{JavaScript} code, so I kept that as simple as possible, not including any preprocessors or other additional tools except for \textit{jQuery}.
 
@@ -82,7 +82,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 		\item About this documentation
 
-		An explanation of page features, but also a call to not shy away from contributing
+		An explanation of page features, but also a call not to shy away from contributing
 
 		\item Prerequisites
 
@@ -138,7 +138,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	\end{enumerate}
 
-	Besides these content chapters, there is a handful of additional pages that aim to help interpreting the documentation or to solve problems of which I took notice through the interviews.
+	Beside these content chapters, there is a handful of additional pages that aim to help interpreting the documentation or to solve problems of which I took notice through the interviews.
 
 	\begin{itemize}
 
@@ -152,7 +152,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 		\item Sources
 
-		A large index of noteworthy websites (along with a content description) that contain information which might be relevant to further educate about a certain topic.
+		A large index of noteworthy websites (along with a content description) that contain information which might be relevant to educate further about a certain topic.
 
 		\item Software
 
@@ -172,13 +172,13 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 		\label{responsive-design}
 	\end{figure}
 
-	Through \ac{CSS} \textit{Media Queries} the page automatically adjusts its properties in such way a that a pleasant reading experiences on all screen sizes and densities can always be guaranteed. Included graphics and icons are, wherever possible, delivered as \ac{SVG} assets. Furthermore, the page does refrain from using mouse hover events for crucial interaction since these would be inaccessible for mobile visitors with touchscreens (see figure \ref{responsive-design}).
+	Through \ac{CSS} \textit{Media Queries} the page automatically adjusts its properties in such a way that pleasant reading on all screen sizes and densities can always be guaranteed. Included graphics and icons are, wherever possible, delivered as \ac{SVG} assets. Furthermore, the page refrains from using mouse hover events for crucial interaction since these would be inaccessible for mobile visitors with touchscreens (see figure \ref{responsive-design}).
 
 	\item[Navigation]\hfill
 
-	On the end of each chapter the user has the possibility to advance to the next topic to provide a natural reading flow (see figure \ref{story-telling}).
+	At the end of each chapter the user has the possibility to advance to the next topic to provide a natural reading flow (see figure \ref{story-telling}).
 
-	Attached to the sticky header, bar there is also a navigation hidden behind the \textit{hamburger} icon that enables the user to jump to an arbitrary chapter (see figure \ref{navigation}).
+	Attached to the sticky header bar there is also a navigation hidden behind the \textit{hamburger} icon that enables the user to jump to an arbitrary chapter (see figure \ref{navigation}).
 
 	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/story-telling.png}
@@ -194,7 +194,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	\item[\textit{Metabox}]\hfill
 
-	Next to each paragraph is a signal reception icon that has the purpose of indicating information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} through to \textit{Sustainable} and is a representation of my personal impressions which I gathered while working with \textit{Scala on Android} or researched the particular topic (see figure \ref{reception-icons}).
+	Next to each paragraph is a signal reception icon that intends to indicate information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} up to \textit{Sustainable} and is a representation of my personal impressions which I gathered while using \textit{Scala on Android} or researching the particular topic (see figure \ref{reception-icons}).
 
 	\begin{figure}[]
 		\center
@@ -211,7 +211,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 		\label{metabox}
 	\end{figure}
 
-	Another important element of the \textit{Metabox} is the \enquote{Edit on \textit{GitHub}} link. When clicked, a new tab with a text editor appears, encouraging the user to make changes. The text editor is part of the \textit{GitHub} website and once an edit has been made, a \textit{pull-request} is automatically created that I, as the the project maintainer, may then review and merge into the project to apply the patch. This approach provides a convenient collaboration workflow with the underlying \ac{VCS} and also reliefs me from the struggle to develop a similar feature.
+	Another important element of the \textit{Metabox} is the \enquote{Edit on \textit{GitHub}} link. When clicked, a new tab with a text editor appears, encouraging the user to make changes. The text editor is part of the \textit{GitHub} website and once an edit has been made, a \textit{pull-request} is created automatically that I, as the the project maintainer, may then review and merge into the project to apply the patch. This approach provides a convenient collaboration workflow with the underlying \ac{VCS} and also relievs me from the struggle to develop a similar feature.
 
 	\item[Further reading]\hfill
 
@@ -264,7 +264,7 @@ section_further_reading( [ 'android', 'android-api-guides' ] );
 ...
 	\end{code}
 
-	Allowing me to pull in names from the index into the template in this fashion:
+	After defining a couple rendering functions, I was able to access the index from templates in this fashion:
 
 	\begin{code}{js}
 names.get( 'robolectric' ) // <em>Robolectric</em>
@@ -273,7 +273,7 @@ names.abbr( 'sbt' ) // <abbr title="Scala Build Tool">sbt</abbr>
 names.name( 'sbt' ) // <em>Scala Build Tool</em>
 	\end{code}
 
-	The major gain of this approach is the semantically valuable rendering of abbreviations with the \texttt{<abbr />} tag. If a reader is unfamiliar with an abbreviation, the title tooltip reveals the full meaning.
+	The major advantage of this approach is the semantically valuable rendering of abbreviations with the \texttt{<abbr />} tag. If a reader is unfamiliar with an abbreviation, the title tooltip reveals the full meaning.
 
 	Furthermore, I used all entries that contain a name and an abbreviation value to render the abbreviations page as part of the build process.
 
@@ -310,7 +310,7 @@ names.name( 'sbt' ) // <em>Scala Build Tool</em>
 code( 'page/proguard/configuration.scala', 'scala' )
 	\end{code}
 
-	The actual highlighting of the program code is done by \textit{highlight.js} which is usually executed by the client. But since it was also possible to easily integrate it into the \textit{Gulp} build process I preferred to encode the syntax highlighting into the delivered \ac{HTML} documents. This way the client does not need to load the additional \textit{JavaScript} dependency and can also benefit from the feature when \textit{JavaScript} is not available.
+	The actual highlighting of the program code is done by \textit{highlight.js} which is usually executed on the client side. Since it was also possible to integrate this process into the \textit{Gulp} build process easily I preferred to encode the syntax highlighting into the delivered \ac{HTML} documents. As a consequence the client does not need to load the additional \textit{JavaScript} dependency and can also benefit from the feature when \textit{JavaScript} is not available.
 
 	\begin{figure}[]
 		\includegraphics[width=\textwidth]{asset/syntax-highlighting.png}
@@ -320,7 +320,7 @@ code( 'page/proguard/configuration.scala', 'scala' )
 
 	\item[\textit{Hello Scala}]\hfill
 
-	Besides documenting how to set up and configure a \textit{Scala on Android} project I saw the need to create a comprehensive and executable project that implements the described practices. A lightweight configuration that is preconfigured with common dependencies (such as the \textit{Android} support libraries) and test cases. Just like the documentation, the \textit{Hello Scala} project is available on \textit{GitHub} and is intended to be cloned in order to have an up to date project template. The \textit{Scala on Android} documentation contains numerous references to its sister project, pointing out that there is a working example waiting to be explored (see figure \ref{hello-scala}).
+	Besides documenting how to set up and configure a \textit{Scala on Android} project I saw the need to create a comprehensive and executable project that implements the described practices. It focuses on a lightweight configuration that is preconfigured with common dependencies (such as the \textit{Android} support libraries) and test cases. Just like the documentation, the \textit{Hello Scala} project is available on \textit{GitHub} and is intended to be cloned in order to have an up-to-date project template. The \textit{Scala on Android} documentation contains numerous references to its sister project, pointing out that there is a working example waiting to be explored (see figure \ref{hello-scala}).
 
 	\begin{figure}[ht]
 		\center
@@ -335,11 +335,11 @@ code( 'page/proguard/configuration.scala', 'scala' )
 
 		\item[Curiosity]\hfill
 
-		Newcomers should be able to clone and get it running on their device with minimal effort. Hoping a demonstrating of how easy a \textit{Scala on Android} set up can be encourages the visitor to give \textit{Scala on Android} a serious try.
+		Newcomers should be able to clone and get it running on their device with minimal effort. As a demonstration of how easy a \textit{Scala on Android} set up can be, it aims to encourage the visitor giving \textit{Scala on Android} a serious try.
 
 		\item[Documentation]\hfill
 
-		As it implements the best practices advertised in the documentation it serves as a functional showcase and learning resource.
+		As it implements the best practices advertised in the documentation, it serves as a functional showcase and learning resource.
 
 		\item[Scaffolding]\hfill
 

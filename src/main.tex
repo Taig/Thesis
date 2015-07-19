@@ -18,6 +18,7 @@
 \usepackage{setspace}
 \usepackage{sidecap}
 
+
 \usepackage{hyperref}
 
 \setlength{\parskip}{\baselineskip}
@@ -47,7 +48,9 @@
 
 	\include{section/affidavit/main}
 
+	\renewcommand{\baselinestretch}{0.75}\normalsize
 	\tableofcontents
+	\renewcommand{\baselinestretch}{1.0}\normalsize
 
 	\include{section/introduction/main}
 	\include{section/identifying-problems/main}

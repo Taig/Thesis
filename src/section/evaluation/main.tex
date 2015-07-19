@@ -4,7 +4,7 @@ Since content analysis is described as \enquote{the most difficult aspect of any
 
 The former, \textit{systematic filing systems}, is a method where the interviews are first torn apart into atomic chunks of information that are relevant to the research. These information are then indexed and classified by some schema (e.g. the interview outline) that helps to organize the interview answers for further use \cite[p. 103]{berg01}. \textit{Short-answer sheets} are primarily an addition to \textit{systematic filing systems}, rather than a separate content analysis method. The researcher creates a brief summary for every question of the interview schedule and attaches them to respective indexes of the \textit{systematic filing systems}. This makes it significantly easier to find or look up certain conversation details \cite[p. 105]{berg01}.
 
-While post-processing the interviews I relied on the voice recordings to classify the obtained information into the four interview outline categories. Afterwards I summarized the information of each outline in note form to have a compact overview of the gathered information. The next step was then to identify problems, mentioned by the interviewee, which could be resolved if there was a better documentation available that covers the topic. I refrained from applying quantitative measures in this process and honored issues that were only mentioned by one or two interviewees equally important as issues that arose more often.
+While post-processing the interviews I relied on the voice recordings to classify the obtained information into the four interview outline categories. Afterwards I summarized the information of each outline in note form to have a compact overview of the gathered information. The next step then was to identify problems, mentioned by the interviewee, which could be resolved if there was a better documentation available that covers the topic. I refrained from applying quantitative measures in this process and honored issues that were only mentioned by one or two interviewees equally important as issues that arose more often.
 
 \subsection{Identified problems}
 
@@ -14,7 +14,7 @@ Following is a list of all problems that I compiled from the interviews. They ar
 
 	\item[Build tool]\hfill
 
-	Leveraging \textit{Scala} on the \textit{Android} platform can be a surprisingly difficult undertaking. Once the decision for \textit{Scala on Android} has been made, the  first obstacle that a novice faces is the choice of the build tool. There are plugins available for multiple build tools, but it is difficult to find out in which way they differ and which one suits the developer's requirements best.
+	Leveraging \textit{Scala} on the \textit{Android} platform can be a surprisingly difficult undertaking. Once the decision for \textit{Scala on Android} was made, the  first obstacle that a novice faces is the choice of the build tool. There are plugins available for multiple build tools, but it is difficult to find out in which way they differ and which one suits the developer's requirements best.
 
 	\begin{description}
 
@@ -48,7 +48,7 @@ Following is a list of all problems that I compiled from the interviews. They ar
 
 	\item[ProGuard and the 65k-limit]\hfill
 
-	When the decision for a build tool has been made and the developers managed to setup a basic project they will now be confronted with \textit{ProGuard}. \textit{ProGuard} is a \ac{JVM} tool that is able to shrink, optimize and obfuscate byte-code. It is included in the \textit{Android} tool-chain as an opt-in service since the very beginning. \textit{Java} developers may use it to minimize the application size by stripping out unused dependency classes or to make the code harder to reverse engineer by obfuscating identifiers. These services do unfortunately come with the price of two major downsides.
+	When the decision for a build tool was made and the developers managed to setup a basic project they will now be confronted with \textit{ProGuard}. \textit{ProGuard} is a \ac{JVM} tool that is able to shrink, optimize and obfuscate byte-code. It is included in the \textit{Android} tool-chain as an opt-in service since the very beginning. \textit{Java} developers may use it to minimize the application size by stripping out unused dependency classes or to make the code harder to reverse engineer by obfuscating identifiers. These services do unfortunately come with the price of two major downsides.
 
 	\begin{description}
 
@@ -64,7 +64,7 @@ Following is a list of all problems that I compiled from the interviews. They ar
 
 	A \textit{Java} developer has the option to balance the pros and cons, or to run \textit{ProGuard} only in the release build process while disabling it during development. A \textit{Scala} developer, however, depends on \textit{ProGuard} and is forced to use it. This is due to the so called \textit{65k limit}. An \textit{Android} application is only allowed to contain 65,536 methods (including the application's libraries). If the application succeeds this limit, the build will fail. Developing with \textit{Scala} requires to depend on the \textit{scala-library} which already suffices to exceed this limit. \textit{Scala on Android} therefore requires the developer to maintain a proper \textit{ProGuard} configuration and to execute \textit{ProGuard} for every build.
 
-	This does not only pose a problem through increased compile times or tedious configuring, but it is also a rather inaccessible topic. Among \textit{Java} developers it is not in wide use because there is usually no reason to do so. Unfortunately the available documentation is accordingly minimalist. The \textit{Scala on Android} tool-chain takes this even further, building additional tools around \textit{ProGuard} (e.g. caching) that require further configuration. All these issues combined make \textit{ProGuard} the major pain point for \textit{Scala on Android} development.
+	This does not only pose a problem through increased compile times or tedious configuring, but it is also a rather inaccessible topic. Among \textit{Java} developers it is not in wide use because there is usually no reason to do so. Unfortunately the available documentation is accordingly minimalistic. The \textit{Scala on Android} tool-chain takes this even further, building additional tools around \textit{ProGuard} (e.g. caching) that require further configuration. All these issues combined make \textit{ProGuard} the major pain point for \textit{Scala on Android} development.
 
 	\begin{highlight}{Key questions}
 
@@ -102,7 +102,7 @@ Following is a list of all problems that I compiled from the interviews. They ar
 
 	\item[Command line]\hfill
 
-	As a consequence of the lacking \ac{IDE} support, developers have to execute build, deployment and testing related tasks via the command line. This emerges to be a significant obstacles for people that are used to do all of this with the help of their \ac{IDE}. Furthermore, the \textit{Android} plugins for \textit{Gradle} and \ac{SBT} introduce a range of new commands that are difficult to grasp, even for developers that are already comfortable with the build tool itself.
+	As a consequence of the lacking \ac{IDE} support, developers have to execute build, deployment and testing related tasks via the command line. This emerges to be a significant obstacle for people that are used to do all of this with the help of their \ac{IDE}. Furthermore, the \textit{Android} plugins for \textit{Gradle} and \ac{SBT} introduce a range of new commands that are difficult to grasp, even for developers that are already comfortable with the build tool itself.
 
 	\begin{highlight}{Key questions}
 
@@ -178,7 +178,7 @@ Following is a list of all problems that I compiled from the interviews. They ar
 
 	\item[Debugging]\hfill
 
-	In opposite to testing, setting code breakpoints and running the debugger can not be triggered from the command line as easily. An \ac{IDE} simplifies this process significantly and provides a better visualization. It remains unclear though whether it is possible to use \ac{IDE} debuggers due to the poor \textit{Scala on Android} integration.
+	In opposite to testing, setting code breakpoints and running the debugger can not be triggered from the command line that easily. An \ac{IDE} simplifies this process significantly and provides a better visualization. It remains unclear whether it is possible to use \ac{IDE} debuggers due to the poor \textit{Scala on Android} integration.
 
 	\begin{highlight}{Key questions}
 
@@ -226,7 +226,7 @@ Following is a list of all problems that I compiled from the interviews. They ar
 
 	\item[Learning resources]\hfill
 
-	It is difficult to find up-to-date information about \textit{Scala on Android}. On one hand, the search results are commonly very \textit{noisy} and include \textit{Android}-related topics which have no connection to \textit{Scala}. On the other hand, the resources that show up tend to be rather outdated and no longer correct. This is due to the fast development of the \textit{Scala} and \textit{Android} platform, and thus also the build tool plugins that try to keep up with this pace.
+	It is difficult to find up-to-date information about \textit{Scala on Android}. On the one hand, the search results are commonly very \textit{noisy} and include \textit{Android}-related topics which have no connection to \textit{Scala}. On the other hand, the resources that show up tend to be rather outdated and no longer correct. This is due to the fast development of the \textit{Scala} and \textit{Android} platform, and thus also the build tool plugins that try to keep up with this pace.
 
 	\begin{highlight}{Key questions}
 
