@@ -20,11 +20,15 @@ Before scaffolding the actual project or picking tools that might help me puttin
 
 	To simplify the audition process of \textit{pull-requests} it is possible to integrate third-party \ac{CI} services that automatically compile and test proposed changes and then add their results and logs to the issue discussion.
 
-	\item[Content editor]\hfill
+	\begin{minipage}{\linewidth}
 
-	Every directory and file of a repository that is hosted on \textit{GitHub} can be browsed on their website. In addition to that, files can also be edited with an online text editor that allows to quickly update content without cloning the repository. This is especially useful for text-based projects like documentations because it is not necessary to compile or test the project before submitting a patch.
+		\item[Content editor]\hfill
 
-	Another positive side effect of this approach is that a user's edits automatically result in a \textit{pull-request} which can then be easily audited and approved as described earlier.
+		Every directory and file of a repository that is hosted on \textit{GitHub} can be browsed on their website. In addition to that, files can also be edited with an online text editor that allows to quickly update content without cloning the repository. This is especially useful for text-based projects like documentations because it is not necessary to compile or test the project before submitting a patch.
+
+		Another positive side effect of this approach is that a user's edits automatically result in a \textit{pull-request} which can then be easily audited and approved as described earlier.
+
+	\end{minipage}
 
 	\item[Popularity]\hfill
 
@@ -164,13 +168,13 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	\end{itemize}
 
-	\item[Responsive design]\hfill
-
-	\begin{figure}[]
+	\begin{figure}[H]
 		\makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{asset/responsive-design.pdf}}
 		\caption{Side by side comparison of the documentation website on common screen sizes}
 		\label{responsive-design}
 	\end{figure}
+
+	\item[Responsive design]\hfill
 
 	Through \ac{CSS} \textit{Media Queries} the page automatically adjusts its properties in such a way that pleasant reading on all screen sizes and densities can always be guaranteed. Included graphics and icons are, wherever possible, delivered as \ac{SVG} assets. Furthermore, the page refrains from using mouse hover events for crucial interaction since these would be inaccessible for mobile visitors with touchscreens (see figure \ref{responsive-design}).
 
@@ -180,13 +184,13 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	Attached to the sticky header bar there is also a navigation hidden behind the \textit{hamburger} icon that enables the user to jump to an arbitrary chapter (see figure \ref{navigation}).
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/story-telling.png}
 		\caption{Footer navigation that contains a link to the previous and next chapter}
 		\label{story-telling}
 	\end{figure}
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/navigation.png}
 		\caption{Main navigation, attached to the sticky header}
 		\label{navigation}
@@ -196,7 +200,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	Next to each paragraph is a signal reception icon that intends to indicate information reliability. The ranking ranges from \textit{Fragile}, to \textit{Moderate} up to \textit{Sustainable} and is a representation of my personal impressions which I gathered while using \textit{Scala on Android} or researching the particular topic (see figure \ref{reception-icons}).
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\center
 		\includegraphics[width=6cm]{asset/reception-icons.png}
 		\caption{Signal reception icons to indicate information reliability. \textit{Fragile} (left, red) and \textit{Moderate} (middle, orange), \textit{Sustainable} (right, green).}
@@ -205,7 +209,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	Clicking on one of these signal icons leads to a \textit{Metabox} showing up. It contains an additional textual description of the information reliability, but also the date when the paragraph has been edited lately, enabling the reader to interpret the ranking in this context (see figure \ref{metabox}).
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/metabox.png}
 		\caption{A \textit{Metabox} that shows a \textit{Moderate} information reliability ranking.}
 		\label{metabox}
@@ -235,7 +239,7 @@ To create \ac{CSS} assets I chose to integrate the \ac{SASS} preprocessor into t
 
 	With the help of the \ac{HTML} templating engine I could then create a function \texttt{section\_further\_reading()} that generates the section with minimal effort (see figure \ref{further-reading}).
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/further-reading.png}
 		\caption{The further reading section at the end of a chapter.}
 		\label{further-reading}
@@ -289,13 +293,13 @@ names.name( 'sbt' ) // <em>Scala Build Tool</em>
 
 	This works for common text paragraphs, blockquotes and also code blocks without abusing \ac{HTML} elements in a context where they do not belong.
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/alert.png}
 		\caption{An example of a paragraph that is highlighted as an alert box to draw attention.}
 		\label{alert}
 	\end{figure}
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/blockquote.png}
 		\caption{An example of a blockquote that is styled in the fashion of a highlighted paragraph.}
 		\label{blockquote}
@@ -312,22 +316,24 @@ code( 'page/proguard/configuration.scala', 'scala' )
 
 	The actual highlighting of the program code is done by \textit{highlight.js} which is usually executed on the client side. Since it was also possible to integrate this process into the \textit{Gulp} build process easily I preferred to encode the syntax highlighting into the delivered \ac{HTML} documents. As a consequence the client does not need to load the additional \textit{JavaScript} dependency and can also benefit from the feature when \textit{JavaScript} is not available.
 
-	\begin{figure}[]
+	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{asset/syntax-highlighting.png}
 		\caption{An example of code blocks that have syntax highlighting applied.}
 		\label{syntax-highlighting}
 	\end{figure}
 
+	\newpage
+
 	\item[\textit{Hello Scala}]\hfill
 
-	Besides documenting how to set up and configure a \textit{Scala on Android} project I saw the need to create a comprehensive and executable project that implements the described practices. It focuses on a lightweight configuration that is preconfigured with common dependencies (such as the \textit{Android} support libraries) and test cases. Just like the documentation, the \textit{Hello Scala} project is available on \textit{GitHub} and is intended to be cloned in order to have an up-to-date project template. The \textit{Scala on Android} documentation contains numerous references to its sister project, pointing out that there is a working example waiting to be explored (see figure \ref{hello-scala}).
-
-	\begin{figure}[ht]
+	\begin{figure}[H]
 		\center
 		\includegraphics[width=0.5\textwidth]{asset/hello-scala.png}
 		\caption{A screenshot of the \textit{Hello Scala} sample application}
 		\label{hello-scala}
 	\end{figure}
+
+	Besides documenting how to set up and configure a \textit{Scala on Android} project I saw the need to create a comprehensive and executable project that implements the described practices. It focuses on a lightweight configuration that is preconfigured with common dependencies (such as the \textit{Android} support libraries) and test cases. Just like the documentation, the \textit{Hello Scala} project is available on \textit{GitHub} and is intended to be cloned in order to have an up-to-date project template. The \textit{Scala on Android} documentation contains numerous references to its sister project, pointing out that there is a working example waiting to be explored.
 
 	\textit{HelloScala} aims to meet three important needs:
 
